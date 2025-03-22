@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import datetime
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'stations',  
+    'rest_framework',
+    
 ]
 
 
@@ -77,10 +80,18 @@ WSGI_APPLICATION = 'bijulisathi_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'bijulisathi_db',  # Replace with your database name
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb://localhost:27017/',  # Change if using MongoDB Atlas
+            'username': 'admin',  # Optional if authentication is enabled
+            'password': 'admin',  # Optional if authentication is enabled
+            'authSource': 'admin',  # Required if using authentication
+        }
     }
 }
+
 
 
 # Password validation
