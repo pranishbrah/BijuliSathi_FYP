@@ -80,17 +80,11 @@ WSGI_APPLICATION = 'bijulisathi_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'bijulisathi_db',  # Replace with your database name
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': 'mongodb://localhost:27017/',  # Change if using MongoDB Atlas
-            'username': 'admin',  # Optional if authentication is enabled
-            'password': 'admin',  # Optional if authentication is enabled
-            'authSource': 'admin',  # Required if using authentication
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 
